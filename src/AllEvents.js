@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
 import data from '../db';
 class AllEvents extends Component {
 
@@ -18,15 +18,20 @@ class AllEvents extends Component {
           renderItem={({item}) => {
             return (
               <View>
-                <View>
-                  <View>
-                    <Text>{item.eventName}</Text>
-                    <View>
-                      <View>
-                        <Text>Type</Text>
+                {/* use elevation: 1 for android shadow */}
+                <View style={{marginVertical:20, marginHorizontal:15, borderRadius:15, backgroundColor:'#ced6eo', shadowOpacity:0.5}}> 
+                  <View style={{padding:15, backgroundColor:'#86dfe5', borderTopLeftRadius:15, borderTopRightRadius:15}}>
+                    <Text style={{fontSize:20, fontWeight:'bold'}}>{item.eventName}</Text>
+                    <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'baseline'}}>
+                      <View style={{flexDirection:'row', alignItems:'baseline'}}>
+                        <Text style={{fontSize:16, fontWeight:'bold'}}>Type</Text>
                         <Text>{item.genre}</Text>
                       </View>
+                      <Text style={{fontSize:12, fontWeight:'bold'}}>{item.date}</Text>
                     </View>
+                  </View>
+                  <View>
+                    <Image source={{uri:item.image}} style={{width:'100%', height:200}}></Image>
                   </View>
                 </View>
               </View>
