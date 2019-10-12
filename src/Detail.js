@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -48,6 +48,14 @@ class Detail extends Component {
             }
           </View>
         </View>
+        <View style={{marginTop:8}}>
+          <Text style={{fontSize:24, fontWeight:'bold'}}>{params.eventName}</Text>
+        </View>
+        <ScrollView style={{marginTop:6}}>
+          <View>
+            <Text style={{lineHeight:23, fontSize:20}}>{params.eventDetail}</Text>
+          </View>
+        </ScrollView>
       </View>
     );
   }
