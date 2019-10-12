@@ -1,9 +1,15 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import data from '../db';
 
 // create a component
 class AllEvents extends Component {
+
+  state={
+    data:data
+  }
+  
   render() {
     return (
       <View style={styles.container}>
