@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import AllEvents from './src/AllEvents';
 import Detail from './src/Detail';
 import Maps from './src/Maps';
@@ -31,10 +32,31 @@ const Events = createStackNavigator({
 
 const BottomTabs = createBottomTabNavigator({
   Events: {
-    screen: Events
+    screen: Events,
+    navigationOptions:({navigation}) => ({
+      tabBarIcon: ({focused, tintColor}) => {
+        return <Icon name="music" color={tintColor} size={20}></Icon>
+      }
+    })
   },
   Detail: {
-    screen: Details
+    screen: Details,
+    navigationOptions:({navigation}) => ({
+      tabBarIcon: ({focused, tintColor}) => {
+        return <Icon name="strikethrough" color={tintColor} size={20}></Icon>
+      }
+    })
+  }
+},{
+  tabBarOptions: {
+    activeTintColor:'#ff4757',
+    inactiveTintColor:'black',
+    labelStyle: {
+      fontSize:13
+    },
+    style: {
+      backgroundColor:'#86dfe5'
+    }
   }
 })
 
