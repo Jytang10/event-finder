@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 import Communications from 'react-native-communications';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { Linking } from 'expo';
 
 
 class Detail extends Component {
@@ -25,7 +26,7 @@ class Detail extends Component {
         </View>
         <View style={{marginTop:15, flexDirection:'row', justifyContent:'center'}}>
           <View style={{marginRight:20}}>
-            <TouchableOpacity style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Map', {...params})} style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
               {map}
               <Text style={{color:'black', fontSize:19}}>Map</Text>
             </TouchableOpacity>
@@ -42,7 +43,7 @@ class Detail extends Component {
           <View style={{marginRight:20}}>
             {
               params.form !== null && 
-                <TouchableOpacity style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
+                <TouchableOpacity onPress={() => Linking.openURL(params.form)} style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
                   {form}
                   <Text style={{color:'black', fontSize:19}}>Form</Text>
                 </TouchableOpacity>

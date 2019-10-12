@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { Image } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AllEvents from './src/AllEvents';
 import Detail from './src/Detail';
 import Maps from './src/Maps';
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 const Details = createStackNavigator({
@@ -60,4 +60,7 @@ const BottomTabs = createBottomTabNavigator({
   }
 })
 
-export default createAppContainer(BottomTabs);
+export default createAppContainer(createSwitchNavigator({
+  Events: Events,
+  AppStack: BottomTabs
+}));
