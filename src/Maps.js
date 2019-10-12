@@ -5,10 +5,11 @@ import MapView, {Marker} from 'react-native-maps';
 
 class Maps extends Component {
   render() {
+    const params = this.props.navigation.state.params
     return (
       <View style={styles.container}>
         <MapView style={styles.map} initialRegion={{latitude:27.7325, longitude: 85.32, latitudeDelta: 0.09, longitudeDelta: 0.092113}}>
-          <Marker coordinate={{latitude:27.695499, longitude:85.315738}}></Marker>
+          <Marker title={params.eventName} coordinate={{latitude:params.mapLocation[0], longitude:params.mapLocation[1]}}></Marker>
         </MapView>
       </View>
     );

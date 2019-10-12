@@ -26,7 +26,7 @@ class Detail extends Component {
         </View>
         <View style={{marginTop:15, flexDirection:'row', justifyContent:'center'}}>
           <View style={{marginRight:20}}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Map')} style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Map', {...params})} style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
               {map}
               <Text style={{color:'black', fontSize:19}}>Map</Text>
             </TouchableOpacity>
