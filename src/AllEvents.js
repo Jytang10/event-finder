@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
 class AllEvents extends Component {
@@ -8,6 +8,7 @@ class AllEvents extends Component {
     return (
       <View style={styles.container}>
         <Text>AllEvents</Text>
+        <Button title="Go to Detail" onPress={() => this.props.navigation.navigate('Detail')}></Button>
       </View>
     );
   }
