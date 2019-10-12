@@ -4,9 +4,11 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 
 class Detail extends Component {
   render() {
+    const params = this.props.navigation.state.params
     return (
       <View style={styles.container}>
-        <Text>Detail</Text>
+        <Text>{params.eventName}</Text>
+        <Text>{params.date}</Text>
       </View>
     );
   }

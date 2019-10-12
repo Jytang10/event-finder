@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, FlatList, Image, TouchableHighlight } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import data from '../db';
 class AllEvents extends Component {
 
@@ -18,7 +18,7 @@ class AllEvents extends Component {
           renderItem={({item}) => {
             return (
               // TouchableNativeFeedback is Android only
-              <TouchableHighlight style={{shadowOpacity:0.5}} onPress={() => this.props.navigation.navigate('Details', {...item})}>
+              <TouchableOpacity style={{shadowOpacity:0.5}} onPress={() => this.props.navigation.navigate('Details', {...item})}>
                 {/* use elevation: 1 for android shadow */}
                 {/* needed to add overflow:hidden to parent View of Image View in order to display borderBottomRadius */}
                 <View style={{overflow:'hidden',marginVertical:20, marginHorizontal:15, borderRadius:15, backgroundColor:'#ced6eo'}}> 
@@ -36,7 +36,7 @@ class AllEvents extends Component {
                     <Image source={{uri:item.image}} style={{width:'100%', height:200, borderBottomLeftRadius:15, borderBottomRightRadius:15, flex:1, alignSelf:'stretch'}}></Image>
                   </View>
                 </View>
-              </TouchableHighlight>
+              </TouchableOpacity>
             )
           }}
           >
