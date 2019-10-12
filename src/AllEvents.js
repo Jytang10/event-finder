@@ -21,7 +21,7 @@ class AllEvents extends Component {
               <TouchableOpacity style={{shadowOpacity:0.5}} onPress={() => this.props.navigation.navigate('Details', {...item})}>
                 {/* use elevation: 1 for android shadow */}
                 {/* needed to add overflow:hidden to parent View of Image View in order to display borderBottomRadius */}
-                <View style={{overflow:'hidden',marginVertical:20, marginHorizontal:15, borderRadius:15, backgroundColor:'#ced6eo'}}> 
+                <View style={{overflow:'hidden', marginVertical:20, marginHorizontal:15, borderRadius:15, backgroundColor:'#ced6eo'}}> 
                   <View style={{padding:15, backgroundColor:'#86dfe5', borderTopLeftRadius:15, borderTopRightRadius:15}}>
                     <Text style={{fontSize:20, fontWeight:'bold'}}>{item.eventName}</Text>
                     <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'baseline'}}>
