@@ -1,34 +1,50 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import data from '../db';
-
-// create a component
 class AllEvents extends Component {
 
-  state={
-    data:data
+  state = {
+    data: data
   }
   
   render() {
     return (
       <View style={styles.container}>
-        <Text>AllEvents</Text>
-        <Button title="Go to Detail" onPress={() => this.props.navigation.navigate('Detail')}></Button>
+        <FlatList
+          style={{width:'100%'}}
+          data={this.state.data}
+          keyExtractor={(item,index) => index.toString()}
+          renderItem={({item}) => {
+            return (
+              <View>
+                <View>
+                  <View>
+                    <Text>{item.eventName}</Text>
+                    <View>
+                      <View>
+                        <Text>Type</Text>
+                        <Text>{item.genre}</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            )
+          }}
+        >
+          
+        </FlatList>
       </View>
     );
   }
 }
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#3498db',
+    backgroundColor: '#f1f2f6',
   },
 });
 
-//make this component available to the app
 export default AllEvents;
