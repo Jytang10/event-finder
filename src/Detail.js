@@ -1,6 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import Communications from 'react-native-communications';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
@@ -13,7 +14,7 @@ class Detail extends Component {
     return (
       <View style={styles.container}>
         <View style={{height:250, width:'100%', alignSelf:'stretch'}}>
-          <Image resizeMode="contain" source={{uri: params.image}} style={{borderRadius:12, width:'100%', height:'100%', alignSelf:'stretch', flex:1}}></Image>
+          <Image resizeMode="contain" source={{uri: params.image}} style={{borderRadius:15, width:'100%', height:'100%', alignSelf:'stretch', flex:1}}></Image>
         </View>
         <View style={{flexDirection:'row', justifyContent:'space-between', marginTop:8, alignItems:'baseline'}}>
           <View style={{flexDirection:'row', alignItems:'baseline'}}>
@@ -32,7 +33,7 @@ class Detail extends Component {
           <View style={{marginRight:20}}>
             {
               params.contact !== null && 
-                <TouchableOpacity style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
+                <TouchableOpacity onPress={() => Communications.phonecall(params.contact, true)} style={{shadowOpacity:0.4, flexDirection:'row', padding:12, borderRadius:6, backgroundColor:'#86dfe6'}}>
                   {phone}
                   <Text style={{color:'black', fontSize:19}}>Call</Text>
                 </TouchableOpacity>
@@ -64,6 +65,7 @@ class Detail extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 8
   },
 });
 
