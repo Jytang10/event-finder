@@ -19,7 +19,8 @@ class AllEvents extends Component {
             return (
               <View>
                 {/* use elevation: 1 for android shadow */}
-                <View style={{marginVertical:20, marginHorizontal:15, borderRadius:15, backgroundColor:'#ced6eo', shadowOpacity:0.5}}> 
+                {/* needed to add overflow:hidden to parent View of Image View in order to display borderBottomRadius */}
+                <View style={{overflow:'hidden', marginVertical:20, marginHorizontal:15, borderRadius:15, backgroundColor:'#ced6eo', shadowOpacity:0.5}}> 
                   <View style={{padding:15, backgroundColor:'#86dfe5', borderTopLeftRadius:15, borderTopRightRadius:15}}>
                     <Text style={{fontSize:20, fontWeight:'bold'}}>{item.eventName}</Text>
                     <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'baseline'}}>
@@ -31,7 +32,7 @@ class AllEvents extends Component {
                     </View>
                   </View>
                   <View>
-                    <Image source={{uri:item.image}} style={{width:'100%', height:200}}></Image>
+                    <Image source={{uri:item.image}} style={{width:'100%', height:200, borderBottomLeftRadius:15, borderBottomRightRadius:15, flex:1, alignSelf:'stretch'}}></Image>
                   </View>
                 </View>
               </View>
