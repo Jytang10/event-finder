@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
 class Detail extends Component {
@@ -8,6 +8,7 @@ class Detail extends Component {
     return (
       <View style={styles.container}>
         <Text>Detail</Text>
+        <Button title="Go to Map" onPress={() => this.props.navigation.navigate('Map')}></Button>
       </View>
     );
   }

@@ -7,15 +7,16 @@ import Maps from './src/Maps';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-
 const Details = createStackNavigator({
   Details: {
     screen: Detail
   },
-  Maps: {
+  Map: {
     screen: Maps
   }
-})
+},{
+  headerMode: 'none'
+});
 
 const Events = createStackNavigator({
   Event: {
